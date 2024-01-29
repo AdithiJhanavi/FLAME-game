@@ -1,0 +1,16 @@
+Include necessary libraries: <cmath>, <cstdio>, <vector>, <iostream>, <algorithm>, and <string>.
+Define a function check_compatibility that takes two characters a and b as input.
+Inside the check_compatibility function, initialise a string flames with the string "FLAMES".
+Find the index of a and b in the flames string and store them in a_index and b_index respectively.
+If either a_index or b_index is 0, print an error message and return false.
+If a_index is equal to b_index, return true.
+If a_index is greater than b_index, recursively call check_compatibility with a and flames[a_index - 1] as input.
+If a_index is less than or equal to b_index, recursively call check_compatibility with flames[b_index - 1] and b as input.
+In the main function, declare two strings name1 and name2 to store the names of the two people.
+Prompt the user to enter the first name and store it in name1.
+Prompt the user to enter the second name and store it in name2.
+Declare a character flame_char to store the sum of the ASCII values of the first characters of name1 and name2.
+Convert flame_char to lowercase using the tolower function.
+If the first characters of name1 and name2 are compatible, print a message indicating that they are compatible. Otherwise, print a message indicating that they are not compatible.
+Return 0 from the main function.
+
