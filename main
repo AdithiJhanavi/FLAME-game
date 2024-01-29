@@ -1,0 +1,51 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+
+
+bool check_compatibility(char a, char b) {
+    string flames = "FLAMES";
+    int a_index = flames.find(a);
+    int b_index = flames.find(b);
+
+    if (a_index == 0 || b_index == 0) {
+        cout << "Invalid input." << endl;
+        return false;
+    }
+
+    if (a_index == b_index) {
+        return true;
+    }
+
+    if (a_index > b_index) {
+        return check_compatibility(a, flames[a_index - 1]);
+    } else {
+        return check_compatibility(flames[b_index - 1], b);
+    }
+}
+
+int main() {
+    string name1, name2;
+    char flame_char;
+
+    cout << "Enter the first name: ";
+    cin >> name1;
+    cout << "Enter the second name: ";
+    cin >> name2;
+
+    flame_char = name1[0] + name2[0];
+    flame_char = tolower(flame_char);
+
+    if (check_compatibility(name1[0], name2[0])) {
+        cout << name1 << " and " << name2 << " are compatible." << endl;
+    } else {
+        cout << name1 << " and " << name2 << " are not compatible." << endl;
+    }
+
+    return 0;
+}
